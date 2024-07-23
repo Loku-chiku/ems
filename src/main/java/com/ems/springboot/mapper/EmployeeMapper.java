@@ -5,22 +5,26 @@ import com.ems.springboot.entity.Employee;
 
 public class EmployeeMapper {
 	
+	//Convert Employee JPA entity to Employee DTO
 	public static EmployeeDto mapToEmployeeDto(Employee employee) {
 		return new EmployeeDto(
 				employee.getId(),
 				employee.getFirstName(),
 				employee.getLastName(),
-				employee.getEmail()
+				employee.getEmail(),
+				employee.getDepartment().getId()
 				);
 	}
 	
-	public static Employee mapToEmployee(EmployeeDto employeedto) {
-		return new Employee(
-				employeedto.getId(),
-				employeedto.getFirstName(),
-				employeedto.getLastName(),
-				employeedto.getEmail()
-				);
+	//Convert Employee DTO to Employee JPA entity
+	public static Employee mapToEmployee(EmployeeDto employeeDto) {
+		Employee employee = new Employee();
+		employee.setId(employeeDto.getId());
+		employee.setFirstName(employeeDto.getFirstName());
+		employee.setLastName(employeeDto.getLastName());
+		employee.setEmail(employeeDto.getEmail());
+		return employee;
+		
 	}
 
 }

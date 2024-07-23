@@ -2,14 +2,19 @@ package com.ems.springboot.dto;
 
 public class EmployeeDto {
 	
-	public EmployeeDto(Long id, String firstName, String lastName, String email) {
+	
+	
+	
+
+	public EmployeeDto(Long id, String firstName, String lastName, String email, Long departmentId) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.departmentId = departmentId;
 	}
-	
+
 	public EmployeeDto() {
 		
 	}
@@ -21,7 +26,9 @@ public class EmployeeDto {
 	private String lastName;
 	
 	private String email;
-
+	
+	private Long departmentId;
+	
 	public Long getId() {
 		return id;
 	}
@@ -54,10 +61,23 @@ public class EmployeeDto {
 		this.email = email;
 	}
 
+	public Long getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(Long departmentId) {
+		this.departmentId = departmentId;
+	}
+
 	@Override
 	public String toString() {
 		return "EmployeeDto [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ "]";
+				+ ", departmentId=" + departmentId + "]";
 	}
 
+	
+	
+	
+
+	
 }
